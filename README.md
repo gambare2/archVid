@@ -1,6 +1,7 @@
 # 📸 Social Media Platform
 # 📸 **ArchVid**
 
+
 A modern **full-stack social media platform** inspired by Instagram.  
 Built to showcase my **frontend + backend skills** with user authentication, media uploads, likes, comments, and real-time chat.  
 
