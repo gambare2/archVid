@@ -21,8 +21,3 @@ Built to showcase my **full-stack development skills** with user authentication,
 - **Others:** JWT Auth, Firebase/AWS (media), Socket.IO  
 
 ---
-
-## 📂 Quick Start
-```bash
-git clone https://github.com/your-username/social-media-app.git
-cd social-media-app
