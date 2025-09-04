@@ -1,69 +1,43 @@
-# React + TypeScript + Vite
+# 📸 Social Media Platform
+# 📸 **ArchVid**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+A modern **full-stack social media platform** inspired by Instagram.  
+Built to showcase my **frontend + backend skills** with user authentication, media uploads, likes, comments, and real-time chat.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
+- 🔐 Secure signup & login (JWT Auth)  
+- 👤 User profiles (bio, avatar, followers/following)  
+- 📷 Upload & share photos/videos  
+- ❤️ Like & comment on posts  
+- 🔎 Explore feed & search  
+- 💬 Real-time chat & notifications (Socket.IO)  
+- ⚡ Responsive & mobile-friendly UI  
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Tech Stack
+**Frontend:** React, Tailwind CSS, Redux  
+**Backend:** Node.js, Express.js  
+**Database:** MongoDB  
+**Cloud Storage:** Firebase / AWS S3  
+**Real-time:** Socket.IO  
+**Deployment:** Docker + Vercel/Render  
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🎯 Live Demo
+👉 [Live Link Here](https://your-deployment-link.com)  
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📂 Project Structure
+```bash
+/social-media-app
+ ├── client/          # React frontend
+ ├── server/          # Express backend
+ ├── docs/            # Documentation
+ ├── .env.example     # Environment variables
+ └── README.md
