@@ -55,7 +55,10 @@ function EditProfile() {
         const token = localStorage.getItem("token");
         if (!token) throw new Error("No token found. Please login again.");
 
-        const res = await axios.get("http://localhost:3000/api/profile/me", {
+        const res = await axios.get(
+          `${import.meta.env.VITE_API_URL}/api/profile/me`,
+          // "http://localhost:3000/api/profile/me",
+           {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -121,7 +124,8 @@ function EditProfile() {
       if (file) formDataToSend.append("profileimage", file);
 
       const res = await axios.post(
-        "http://localhost:3000/api/profile/editprofile",
+        `${import.meta.env.VITE_API_URL}/api/profile/editprofile`,
+        // "http://localhost:3000/api/profile/editprofile",
         formDataToSend,
         {
           headers: {

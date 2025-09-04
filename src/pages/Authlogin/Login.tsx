@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 function Login() {
   const navigate = useNavigate();
   const [form, setForm] = useState({
-    usernameOrEmail: '',
+    phonenoOremail: '',
     password: ''
   });
 
@@ -19,15 +19,15 @@ function Login() {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:3000/auth/login",
-        // `${import.meta.env.VITE_API_URL}/auth/login`,
+        // "http://localhost:3000/auth/login",
+        `${import.meta.env.VITE_API_URL}/auth/login`,
         form,
         { withCredentials: true }
       );
       toast.success(res.data.message);
-      setTimeout(() => navigate('/home'), 1000);
+      setTimeout(() => navigate('/profile'), 1000);
     } catch (error) {
-      toast.error("Username/Email or Password is wrong");
+      toast.error("Email/phoneno or Password is wrong");
     }
   };
 
@@ -40,14 +40,14 @@ function Login() {
 
             <div className="flex flex-col items-center gap-y-6">
               <FormControl fullWidth>
-                <InputLabel htmlFor="usernameOrEmail">Username / Email</InputLabel>
+                <InputLabel htmlFor="usernameOrEmail">Phone No. / Email</InputLabel>
                 <OutlinedInput
                   id="usernameOrEmail"
                   placeholder="Enter your username or email"
                   name="usernameOrEmail"
                   label="Username / Email"
                   onChange={handleChange}
-                  value={form.usernameOrEmail}
+                  value={form.phonenoOremail}
                 />
               </FormControl>
 
@@ -66,7 +66,7 @@ function Login() {
 
               <div className="w-full text-right">
                 <Link
-                  to="/forgot-password"
+                  to="/forgotpassword"
                   className="text-blue-700 text-sm hover:underline"
                 >
                   Forgot Password?
@@ -80,7 +80,7 @@ function Login() {
               <p className="text-sm">
                 Not registered?{" "}
                 <Link
-                  to="/user/register"
+                  to="/register"
                   className="text-blue-600 hover:text-blue-800"
                 >
                   Create account
