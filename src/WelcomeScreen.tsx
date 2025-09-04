@@ -92,17 +92,17 @@ export default function Home() {
   const submitRegister = async (e: FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
-
+  
     const formData: Partial<FormData> = {
       password: form.password,
     };
-
+  
     if (form.identifier.includes("@")) {
       formData.email = form.identifier;
     } else {
       formData.phoneno = form.identifier;
     }
-
+  
     try {
       setLoading(true);
       const res = await axios.post(
@@ -113,8 +113,19 @@ export default function Home() {
           headers: { "Content-Type": "application/json" },
         }
       );
+  
+      // ✅ Save token to localStorage
+      if (res.data.token) {
+        localStorage.setItem("token", res.data.token);
+        console.log("✅ Token saved after register:", res.data.token);
+      } else {
+        console.warn("⚠️ No token returned from backend");
+      }
+  
       toast.success(res.data.message);
-      setTimeout(() => navigate("editProfile"), 1000);
+  
+      // Navigate directly to edit profile (already authenticated)
+      setTimeout(() => navigate("/editProfile"), 1000);
     } catch (error: any) {
       const { response } = error;
       if (response?.status === 409 && response.data?.redirectToLogin) {
@@ -127,6 +138,7 @@ export default function Home() {
       setLoading(false);
     }
   };
+  
 
   return (
     <div className="min-h-screen flex justify-center items-center px-4 bg-gradient-to-br  to-indigo-900 relative overflow-hidden">
